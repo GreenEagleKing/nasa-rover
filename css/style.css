@@ -1,0 +1,35 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+html{
+  background-image: url('https://www.cornergas.com/wp-content/uploads/2020/05/CGA_BG_medCU_Tavern.png');
+  background-repeat: round;
+  overflow: hidden;
+  
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Oswald;
+  overflow-y: auto;
+}
+
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
