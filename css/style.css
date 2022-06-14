@@ -15,8 +15,9 @@
 /*******************************************/
 
 html{
-  background-image: url('https://www.cornergas.com/wp-content/uploads/2020/05/CGA_BG_medCU_Tavern.png');
-  background-repeat: round;
+  /* background-image: url('https://www.cornergas.com/wp-content/uploads/2020/05/CGA_BG_medCU_Tavern.png'); */
+  /* background-repeat: round; */
+  background-color: white;
   overflow: hidden;
   
 }
@@ -28,6 +29,30 @@ body {
   overflow-y: auto;
 }
 
+#title {
+  font-size: 100px;
+  text-align: center;
+  margin: 50px 0px 50px 0px;
+  
+}
+
+.viewport-container {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid blue;
+  justify-content: space-evenly;
+  height: 500px;
+}
+
+#FHAZImg {
+  height: 400px;
+}
+
+.control-panel-container {
+  display: flex;
+  justify-content: center;
+  border: 2px solid green;
+}
 
 /******************************************
 /* ADDITIONAL STYLES
