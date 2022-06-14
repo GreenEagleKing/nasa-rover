@@ -42,16 +42,33 @@ body {
   border: 2px solid blue;
   justify-content: space-evenly;
   height: 500px;
+  text-align: center;
 }
 
 #FHAZImg {
   height: 400px;
 }
 
+#NAVCAMImg {
+  height: 400px;
+}
+
+#RHAZImg {
+  height: 400px;
+}
+
+#pickSol {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 15px 55px;
+}
+
 .control-panel-container {
   display: flex;
   justify-content: center;
   border: 2px solid green;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 /******************************************

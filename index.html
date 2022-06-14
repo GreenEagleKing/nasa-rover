@@ -20,19 +20,32 @@
 
 		<!-- 3 columns, center column split horizontally-->
 		<section class="viewport-container">
-			<div>left view port</div>
+			<div>left view port
+				<img id="NAVCAMImg" alt="Image of Navigational Camera">
+			</div>
 			<section class="middle-viewport-container">
-				<div>middle viewport</div>
-				<img id="FHAZImg" alt="Image of Front Hazard Avoidance Camera">
+				<div>middle viewport
+					<img id="FHAZImg" alt="Image of Front Hazard Avoidance Camera">
+				</div>
 			</section>
-			<div>right viewport</div>
-			<img id="RHAZImg" alt="Image of Rear Hazard Avoidance Camera">
+			<div>right viewport
+				<img id="RHAZImg" alt="Image of Rear Hazard Avoidance Camera">
+			</div>
 		</section>
 
 
 		<section class="control-panel-container">
 			<section class="controlPanel">
 				<h1>Control panel</h1>
+				<input type="text" id="solPick"></input>
+				<br>
+				<button id="minusSol">-1 Sol</button>  
+				<button id="pickSol">Sol Pick</button>
+				<button id="plusSol">+1 Sol</button>
+				<br>
+				<button id="firstSol">Landing Sol</button> 
+				<button id="latestSol">Latest Sol</button> 
+				
 			</section>
 		</section>	
 	</section>
