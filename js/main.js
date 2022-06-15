@@ -6,7 +6,11 @@ document.querySelector('#pickSol').addEventListener('click', () => {
     getNAVCAM()
 })
 
-
+document.querySelector('#firstSol').addEventListener('click', () => {
+    getFHAZ()
+    getRHAZ()
+    getNAVCAM()
+})
 
 
 function getFHAZ() {
@@ -61,6 +65,7 @@ let nasaRHAZURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/phot
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            console.log(data.photos[0].camera)
             document.querySelector('#NAVCAMImg').src = data.photos[0].img_src
             
         })
@@ -69,3 +74,7 @@ let nasaRHAZURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/phot
             alert("Error! Martian interference. Please repeat message, over.")
         })
 }
+
+// Landing Sol
+// request sol 0
+// update images/ data
