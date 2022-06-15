@@ -20,31 +20,46 @@
 
 		<!-- 3 columns, center column split horizontally-->
 		<section class="viewport-container">
-			<div>left view port
+			<section class="left-screen">
 				<img id="NAVCAMImg" alt="Image of Navigational Camera">
-			</div>
-			<section class="middle-viewport-container">
-				<div>middle viewport
-					<img id="FHAZImg" alt="Image of Front Hazard Avoidance Camera">
-				</div>
+				<section class="navContainer">
+					<a href="#" id="navArrowPrevious" class="arrow left"></a>
+					<div class="cam-titles">Navigation Camera</div>
+					<a href="#" id="navArrowNext" class="arrow right"></a>
+				</section>	
 			</section>
-			<div>right viewport
+			<section class="middle-viewport-container">
+				<img id="FHAZImg" alt="Image of Front Hazard Avoidance Camera">
+				<section class="fhazContainer">
+					<a href="#" id="fhazArrowPrevious" class="arrow left"></a>
+					<div class="cam-titles">Front Hazard Avoidance Camera</div>
+					<a href="#" id="fhazArrowNext" class="arrow right"></a>
+				</section>
+			</section>
+			<section class="right-screen">
 				<img id="RHAZImg" alt="Image of Rear Hazard Avoidance Camera">
-			</div>
+				<section class="rhazContainer">
+					<a href="#" id="rhazArrowPrevious" class="arrow left"></a>
+					<div class="cam-titles">Rear Hazard Avoidance Camera</div>
+					<a href="#" id="rhazArrowNext" class="arrow right"></a>
+				</section>
+			</section>	
 		</section>
-
 
 		<section class="control-panel-container">
 			<section class="controlPanel">
-				<h1>Control panel</h1>
-				<input type="text" id="solPick"></input>
-				<br>
-				<button id="minusSol">-1 Sol</button>  
-				<button id="pickSol">Sol Pick</button>
-				<button id="plusSol">+1 Sol</button>
-				<br>
-				<button id="firstSol">Landing Sol</button> 
-				<button id="latestSol">Latest Sol</button> 
+				<h3>Control panel</h3>
+				<label>Pick sol </label>
+				<input type="number" id="solPick"></input>
+				<section class="minus-pick-plus-container">
+					<button id="minusSol">Yesterday Sol</button>  
+					<button id="pickSol">Sol Pick</button>
+					<button id="plusSol">Next Sol</button>
+				</section>
+				<section class="first-latest-container">
+					<button id="firstSol">Landing Sol</button> 
+					<button id="latestSol">Latest Sol</button>
+				</section>	 
 				
 			</section>
 		</section>	

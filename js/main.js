@@ -8,10 +8,10 @@ document.querySelector('#pickSol').addEventListener('click', () => {
 
 
 
+
 function getFHAZ() {
 
 let sol = document.querySelector('#solPick').value
-console.log(sol)
 
 let nasaFHAZURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&camera=fhaz&api_key=HTn441SSfabqhV7KiFBa5KJYXERa6P5q2vZcb5ew`
 
@@ -20,7 +20,7 @@ fetch(nasaFHAZURL)
     .then(data => {
         console.log(data)
         document.querySelector('#FHAZImg').src = data.photos[0].img_src
-        
+       
     })
     .catch(err => {
         console.log(`error ${err}`)
@@ -32,7 +32,7 @@ fetch(nasaFHAZURL)
 function getRHAZ() {
 
 let sol = document.querySelector('#solPick').value
-console.log(sol)
+
 
 let nasaRHAZURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&camera=rhaz&api_key=HTn441SSfabqhV7KiFBa5KJYXERa6P5q2vZcb5ew`
 
@@ -52,10 +52,10 @@ fetch(nasaRHAZURL)
 
 function getNAVCAM() {
 
-    let sol = document.querySelector('#solPick').value
-    console.log(sol)
+let sol = document.querySelector('#solPick').value
     
-    let nasaRHAZURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&camera=navcam&api_key=HTn441SSfabqhV7KiFBa5KJYXERa6P5q2vZcb5ew`
+    
+let nasaRHAZURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&camera=navcam&api_key=HTn441SSfabqhV7KiFBa5KJYXERa6P5q2vZcb5ew`
     
     fetch(nasaRHAZURL)
         .then(res => res.json())
@@ -68,5 +68,4 @@ function getNAVCAM() {
             console.log(`error ${err}`)
             alert("Error! Martian interference. Please repeat message, over.")
         })
-    
-    }
+}

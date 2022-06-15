@@ -2,7 +2,7 @@
 /* CSS
 /*******************************************/
 
-@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 
 /* Box Model Hack */
@@ -25,53 +25,174 @@ html{
 html,
 body {
   height: 100%;
-  font-family: Oswald;
+  min-width: 1260px;
+  font-family: Lato;
   overflow-y: auto;
 }
 
 #title {
   font-size: 100px;
   text-align: center;
-  margin: 50px 0px 50px 0px;
+  margin: 30px 0px 30px 0px;
   
 }
 
 .viewport-container {
   display: flex;
   flex-direction: row;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   justify-content: space-evenly;
   height: 500px;
   text-align: center;
 }
 
+.navContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.fhazContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.rhazContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cam-titles {
+  padding: 10px;
+}
+
 #FHAZImg {
   height: 400px;
+  margin: 10px;
 }
 
 #NAVCAMImg {
   height: 400px;
+  margin: 10px;
+  
 }
 
 #RHAZImg {
   height: 400px;
+  margin: 10px;
+}
+
+#solPick {
+  text-align: center;
+  width: 100px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 #pickSol {
   margin-top: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   padding: 15px 55px;
 }
 
 .control-panel-container {
   display: flex;
   justify-content: center;
-  border: 2px solid green;
+  /* border: 2px solid green; */
   text-align: center;
   margin-bottom: 50px;
+}
+
+.minus-pick-plus-container {
+  width: 600px;
 }
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
 
+.arrow {
+  margin: 21px;
+  width: 1rem;
+  height: 1rem;
+  background: transparent;
+  border-top: .2rem solid black;
+  border-right: .2rem solid black;
+  box-shadow: 0 0 0 lightgray;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.arrow.left {
+  left: 0;
+  -webkit-transform: translate3d(0, -50%, 0) rotate(-135deg);
+          transform: translate3d(0, -50%, 0) rotate(-135deg);
+}
+.arrow.right {
+  right: 0;
+  -webkit-transform: translate3d(0, -50%, 0) rotate(45deg);
+          transform: translate3d(0, -50%, 0) rotate(45deg);
+}
+.arrow:hover {
+  border-top: .2rem solid orange;
+  border-right: .2rem solid orange;
+  box-shadow: .2rem -.2rem 0 black;
+}
+.arrow:hover.left {
+  left: -.2rem;
+}
+.arrow:hover.right {
+  right: -.2rem;
+}
+
+button {
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 0px 15px 0px 15px;
+}
+
+button:focus {
+  color: #171e29;
+  
+}
+
+button:hover {
+  border-color: orange;
+  color: orange;
+  fill: orange;
+}
+
+button:active {
+  border-color: orange;
+  color: orange;
+  fill: orange;
+}
+
+@media (min-width: 768px) {
+  .button {
+    min-width: 170px;
+  }
+}
