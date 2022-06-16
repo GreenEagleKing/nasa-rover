@@ -17,3 +17,5 @@ My problem:
 - I have also included a image of the fetched data called nasafetch.jpeg in the home directory
 
 For reference: Fetching api's is as far as I have got right now. I know there are promises and possibly some otherways of using the data, but havent learnt this far if that's a solution.
+
+LINK TO NASA API - MARS ROVER PHOTOS - https://api.nasa.gov/
