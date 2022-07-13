@@ -2,6 +2,8 @@
 
 This is cool. You can choose a day on mars and you will receive all the photos from 3 different camera positions on the rover. You can then carousel through the images. 
 
+![main/Screenshot from 2022-07-13 17-26-02.png](https://github.com/GreenEagleKing/nasa-rover/blob/main/Screenshot%20from%202022-07-13%2017-26-02.png)
+
 # How It's Made:
 Tech used: HTML, CSS, JavaScript, NASA API
 
