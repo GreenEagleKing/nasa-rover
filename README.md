@@ -1,21 +1,22 @@
-# nasa-rover
+# Curiosity Mars Rover Photo Fetcher
 
-FOR MADELIN
+This is cool. You can choose a day on mars and you will receive all the photos from 3 different camera positions on the rover. You can then carousel through the images. 
 
-The aim of the project is to fetch curiosity rover images from the NASA api and display them on website. 
+# How It's Made:
+Tech used: HTML, CSS, JavaScript, NASA API
 
-- A sol is a day on mars
+There are 3 different cameras on the rover which all have their own object info. I began with creating a fetch request for the NAVCAM for a user choosen day using an input form. The fetched image is then put into the DOM and can move through that day s(sol) images using the arrows. Due to the way NASA's API works I have had to do 3 seperate fetch requests to gather the images from each of the cameras.
 
-What I want it to do:
-- The user inputs a sol and the nasa api fetchs the photos for that sol
-- There are 3 different cameras (FHAZ, RHAZ, NAVCAM) - Each camera displays a different photo
-- Other buttons include, latest sol, landing sol and the abillity to go to the next or previous day
+Currently once a day is inputted and images fetched you can then +1 day or -1 day using the buttons either side of the input form submit button. I have also added the abillity to pick the 1st day that Curiosity landed and the latest day images. 
 
-My problem:
-- At the moment I am doing 3 different fetches to get the photos from each camera. To me this seems like a very inefficient way to do this.
-- Is there a way to do this in one fetch?
-- I have also included a image of the fetched data called nasafetch.jpeg in the home directory
+# Optimizations:
+I would really like to reduce the number of fetches if there is anyway around it.
 
-For reference: Fetching api's is as far as I have got right now. I know there are promises and possibly some otherways of using the data, but havent learnt this far if that's a solution.
+I want to improve the look of the website and make it more engaging by providing more information on the images.
 
-LINK TO NASA API - MARS ROVER PHOTOS - https://api.nasa.gov/
+# Lessons Learned:
++ Successfully interacted with NASA's API
++ Accessing the API objects that I want
++ Using DOM manipulation to add images to the webpage
+
+
