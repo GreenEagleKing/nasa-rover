@@ -1,10 +1,14 @@
 //My NASA Key HTn441SSfabqhV7KiFBa5KJYXERa6P5q2vZcb5ew
 
+// On page load fetch current sol images/info
+getManifest()
+
 document.querySelector('#pickSol').addEventListener('click', () => {
     let sol = document.querySelector('#solPick').value
     getFHAZ(sol)
     getRHAZ(sol)
     getNAVCAM(sol)
+    document.getElementById("currentDate").textContent = `Sol's since launch: ${sol}`
 })
 
 // Click counter for sol's
@@ -16,6 +20,7 @@ document.querySelector('#minusSol').addEventListener('click', () => {
     getFHAZ(sol)
     getRHAZ(sol)
     getNAVCAM(sol)
+    document.getElementById("currentDate").textContent = `Sol's since launch: ${sol}`
     return count    
 })
 
@@ -25,9 +30,26 @@ document.querySelector('#plusSol').addEventListener('click', () => {
     getFHAZ(sol)
     getRHAZ(sol)
     getNAVCAM(sol)
+    document.getElementById("currentDate").textContent = `Sol's since launch: ${sol}`
     return count
     
 })
+
+// Latest sol images
+function latestSol(todaySol) {
+    if (document.readyState === 'complete') {
+        getFHAZ(todaySol)
+        getRHAZ(todaySol)
+        getNAVCAM(todaySol)
+        document.getElementById("currentDate").textContent = `Sol's since launch: ${todaySol}`
+    } else {
+    document.querySelector('#latestSol').addEventListener('click', () => {
+        getFHAZ(todaySol)
+        getRHAZ(todaySol)
+        getNAVCAM(todaySol)
+        document.getElementById("currentDate").textContent = `Sol's since launch: ${todaySol}`
+    })}
+}
 
 // Landing Sol images
 document.querySelector('#firstSol').addEventListener('click', () => {
@@ -35,6 +57,7 @@ document.querySelector('#firstSol').addEventListener('click', () => {
     getFHAZ(sol)
     getRHAZ(sol)
     getNAVCAM(sol)
+    document.getElementById("currentDate").textContent = `Sol's since launch: ${sol}`
 })
 
 // Fetch FHAZ camera image
@@ -155,24 +178,32 @@ let nasaNavcamURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/ph
 }
 
 
-    
+function getManifest() {
+
+// Fetch info for that Sol and run latest sol function    
 let nasaManifestURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/?api_key=HTn441SSfabqhV7KiFBa5KJYXERa6P5q2vZcb5ew`
     
     fetch(nasaManifestURL)
         .then(res => res.json())
         .then(data => {
             let maxSol = data.rover.max_sol
-         
-            // Fetch latest sol images on click
-            document.querySelector('#latestSol').addEventListener('click', () => {
-                getFHAZ(maxSol)
-                getRHAZ(maxSol)
-                getNAVCAM(maxSol)
-            })
-        
-
+            let launch = data.rover.launch_date
+            let landing = data.rover.landing_date
+            let status = data.rover.status
+            latestSol(maxSol)
+            getInfo(maxSol, launch, landing, status)
+            console.log(data)
         })
         .catch(err => {
             console.log(`error ${err}`)
             alert("Error! Martian interference. Please repeat message, over.")
-        })
+})
+}
+
+// Fetches sol info and puts it into the info section 
+function getInfo(maxSol, launch, landing, status) {
+    document.getElementById("launchDate").textContent = `Launch date: ${launch}`
+    document.getElementById("landingDate").textContent = `Landing date: ${landing}`
+    document.getElementById("currentDate").textContent = `Sol's since launch: ${maxSol}`
+    document.getElementById("status").textContent = `Status: ${status}`
+}
