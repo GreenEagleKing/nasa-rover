@@ -5,7 +5,7 @@
     	<meta name="description" content="This is where your description goes">
     	<meta name="keywords" content="one, two, three">
 
-		<title>NASA Rover</title>
+		<title>Curiosity Rover</title>
 
 		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/normalize.css">
@@ -13,12 +13,15 @@
 	</head>
 	<body>
 
-		<div id="title">NASA Rover</div>
+		<h1 id="title">Curiosity Rover</h1>
+		<h2>Is there Life on Mars...</h2>
 	<section class="info">
-		<p id="launchDate">Launch Date</p>
-		<p id="landingDate">Landing Date</p>
-		<p id="currentDate">Current Date</p>
-		<p id="status">Status</p>
+		<section><p>Launch Date:</p><p id="launchDate"></p></section>
+		<section><p>Landing Date:</p><p id="landingDate"></p></section>
+		<section><p>Sol's since launch:</p><p id="currentDate"></p></section>
+		<section class="status-Container"><p>Status:</p><p id="status"></p>
+			<iframe src="https://giphy.com/embed/J47crA9L0GpTBsLMVK" width="30px" height="30px" frameBorder="0" allowFullScreen class="light"></iframe>
+		</section>
 	</section>
 
 		
@@ -53,9 +56,18 @@
 		</section>
 
 		<section class="control-panel-container">
+			<section class="facts-container">
+				<h3>Facts:</h3>
+				<ul>
+					<li>A sol is a day on Mars</li>
+					<li>Lorem ipsum dolor sit amet.</li>
+					<li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem, quae.</li>
+					<li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+				</ul>
+			</section>
 			<section class="controlPanel">
-				<h3>Control panel</h3>
-				<label>Pick sol </label>
+				<h2>Control Panel</h2>
+				<label>Input sol number</label>
 				<input type="number" id="solPick"></input>
 				<section class="minus-pick-plus-container">
 					<button id="minusSol">Yesterday Sol</button>  
@@ -66,7 +78,15 @@
 					<button id="firstSol">Landing Sol</button> 
 					<button id="latestSol">Latest Sol</button>
 				</section>	 
-				
+			</section>
+			<section class="favourites-container">
+				<h3>Favourite Sol's:</h3>
+				<ul>
+					<li>A sol is a day on Mars</li>
+					<li>Lorem ipsum dolor sit amet.</li>
+					<li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem, quae.</li>
+					<li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+				</ul>
 			</section>
 		</section>	
 	</section>

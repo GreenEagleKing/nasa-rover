@@ -57,7 +57,7 @@ document.querySelector('#firstSol').addEventListener('click', () => {
     getFHAZ(sol)
     getRHAZ(sol)
     getNAVCAM(sol)
-    document.getElementById("currentDate").textContent = `Sol's since launch: ${sol}`
+    document.getElementById("currentDate").textContent = sol
 })
 
 // Fetch FHAZ camera image
@@ -202,8 +202,15 @@ let nasaManifestURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/
 
 // Fetches sol info and puts it into the info section 
 function getInfo(maxSol, launch, landing, status) {
-    document.getElementById("launchDate").textContent = `Launch date: ${launch}`
-    document.getElementById("landingDate").textContent = `Landing date: ${landing}`
-    document.getElementById("currentDate").textContent = `Sol's since launch: ${maxSol}`
-    document.getElementById("status").textContent = `Status: ${status}`
+    document.getElementById("launchDate").textContent = launch
+    document.getElementById("landingDate").textContent = landing
+    document.getElementById("currentDate").textContent = maxSol
+
+    //Green light gif for active and red for anything else
+    document.getElementById("status").textContent = status.toUpperCase()
+    if (status !== "active") {
+       const light = document.querySelector('.light')
+        light.src = "https://giphy.com/embed/cl7sAq7d8IrihKOaW1"
+        light.style.borderColor = "rgb(71, 24, 24)"
+    }
 }
