@@ -2,6 +2,8 @@
 
 // On page load fetch current sol images/info
 getManifest()
+checkFavs()
+let favArray = checkFavs()
 
 document.querySelector('#pickSol').addEventListener('click', () => {
     let sol = document.querySelector('#solPick').value
@@ -9,6 +11,15 @@ document.querySelector('#pickSol').addEventListener('click', () => {
     getRHAZ(sol)
     getNAVCAM(sol)
     document.getElementById("currentDate").textContent = `Sol's since launch: ${sol}`
+})
+
+document.querySelector('#favBtn').addEventListener('click', () => {
+    addToFavs(favArray)
+})
+
+document.querySelector('#clearFav').addEventListener('click', () => {
+    clearFavs()
+    favArray = []
 })
 
 // Click counter for sol's
@@ -95,7 +106,7 @@ fetch(nasaFHAZURL)
     })
     .catch(err => {
         console.log(`error ${err}`)
-        alert("Error! Martian interference. Please repeat message, over.")
+        alert("Error! Martian interference. Please try again, over.")
     })
 
 }
@@ -134,14 +145,14 @@ fetch(nasaRHAZURL)
     })
     .catch(err => {
         console.log(`error ${err}`)
-        alert("Error! Martian interference. Please repeat message, over.")
+        alert("Error! Martian interference. Please try again, over.")
     })
 
 }
 
 // Fetch NAVCAM camera image
 function getNAVCAM(solInput) {    
-    
+    555
 let nasaNavcamURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${solInput}&camera=navcam&api_key=HTn441SSfabqhV7KiFBa5KJYXERa6P5q2vZcb5ew`
     
     fetch(nasaNavcamURL)
@@ -173,7 +184,7 @@ let nasaNavcamURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/ph
         })
         .catch(err => {
             console.log(`error ${err}`)
-            alert("Error! Martian interference. Please repeat message, over.")
+            alert("Error! Martian interference. Please try again, over.")
         })
 }
 
@@ -213,4 +224,36 @@ function getInfo(maxSol, launch, landing, status) {
         light.src = "https://giphy.com/embed/cl7sAq7d8IrihKOaW1"
         light.style.borderColor = "rgb(71, 24, 24)"
     }
+}
+
+// Add sol to favourites button (add to local storage) and put into DOM
+
+function checkFavs(){
+    if (localStorage.getItem('fav1') === null) {
+        const favArr = []
+        return favArr
+    } else {
+        getFavLocal()
+        const favArr = getFavLocal()
+        return favArr
+    }
+}
+
+function addToFavs(array) {
+    let solInput = document.querySelector('#solPick').value
+    array.push(solInput.toString())
+    localStorage.setItem('fav1', JSON.stringify(array))
+    getFavLocal()
+    }
+
+function getFavLocal() {
+    let getFav = JSON.parse(localStorage.getItem('fav1'))
+    console.log(getFav)
+    document.querySelector('#favList').textContent = getFav
+    return getFav
+}
+
+function clearFavs() {
+    localStorage.clear()
+    document.querySelector('#favList').textContent = "No favourites selected"
 }

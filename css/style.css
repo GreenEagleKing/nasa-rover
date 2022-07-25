@@ -145,6 +145,7 @@ label{
   justify-content: space-around;
   margin-bottom: 50px;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
 .control-panel-container h2{
@@ -165,6 +166,11 @@ li{
 .controlPanel{
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.favourites-container section{
+  display: flex;
   align-items: center;
 }
 
@@ -258,4 +264,9 @@ button:active {
   .button {
     min-width: 170px;
   }
+}
+
+#clearFav{
+  height: 48px;
+  min-width: 50px;
 }
