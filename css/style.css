@@ -17,8 +17,9 @@
 html{
   /* background-image: url('https://www.cornergas.com/wp-content/uploads/2020/05/CGA_BG_medCU_Tavern.png'); */
   /* background-repeat: round; */
-  background-color: white;
+  background-color: black;
   overflow: hidden;
+  resize: none;
   
 }
 
@@ -78,10 +79,19 @@ h2{
 .viewport-container {
   display: flex;
   flex-direction: row;
-  /* border: 2px solid blue; */
-  justify-content: space-evenly;
-  height: 480px;
+  justify-content: center;
+  height: 550px;
+  margin: 20px 0px;
   text-align: center;
+  align-items: center;
+  background-image: url('../img/img-bg-2.png');
+  background-size: 1440px, 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.viewport-container section {
+  margin: 0px 25px
 }
 
 .navContainer {
@@ -108,18 +118,18 @@ h2{
 
 #FHAZImg {
   height: 400px;
-  margin: 10px;
+  margin: 10px 0px;
 }
 
 #NAVCAMImg {
   height: 400px;
-  margin: 10px;
+  margin: 10px 0px;
   
 }
 
 #RHAZImg {
   height: 400px;
-  margin: 10px;
+  margin: 10px 0px;
 }
 
 #solPick {
@@ -144,16 +154,60 @@ label{
   display: flex;
   justify-content: space-around;
   margin-bottom: 50px;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: nowrap;
+  padding: 30px;
+}
+.control-panel-container h3 {
+  margin: 0px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
 }
 
-.control-panel-container h2{
-  margin-bottom: 10px;
+.facts-container{
+  padding: 35px 60px 50px 60px;
+  background-image: url('../img/3d-bg-3.png');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  resize: none;
 }
 
-.control-panel-container h2, h3 {
-  padding: 0px 40px;
+.controlPanel{
+  padding: 30px 30px 30px 30px;
+  background-image: url('../img/cp-3.png');
+  background-size: 600px;
+  background-position: top;
+  background-repeat: no-repeat;
+  resize: none;
+  height: 370px;
+}
+
+.favourites-container{
+  width: 380px;
+  padding: 35px;
+  align-items: center;
+  background-image: url('../img/Favs-BG@300x.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  resize: none;
+}
+
+.favourites-container button{
+  display: flex;
+  flex-direction: row;
+}
+
+.favourites-container h3 {
+  padding-right: 90px;
+}
+
+#favList {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 0px;
 }
 
 li{
@@ -269,4 +323,9 @@ button:active {
 #clearFav{
   height: 48px;
   min-width: 50px;
+  margin-left: 10px;
+}
+
+#favBtn {
+  margin-left: 0px;
 }

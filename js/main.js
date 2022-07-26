@@ -31,7 +31,7 @@ document.querySelector('#minusSol').addEventListener('click', () => {
     getFHAZ(sol)
     getRHAZ(sol)
     getNAVCAM(sol)
-    document.getElementById("currentDate").textContent = `Sol's since launch: ${sol}`
+    document.getElementById("currentDate").textContent = `${sol}`
     return count    
 })
 
@@ -248,7 +248,6 @@ function addToFavs(array) {
 
 function getFavLocal() {
     let getFav = JSON.parse(localStorage.getItem('fav1'))
-    console.log(getFav)
     document.querySelector('#favList').textContent = getFav
     return getFav
 }
