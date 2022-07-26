@@ -106,7 +106,7 @@ fetch(nasaFHAZURL)
     })
     .catch(err => {
         console.log(`error ${err}`)
-        alert("Error! Martian interference. Please try again, over.")
+        const imgError = document.querySelector('#FHAZImg').src = './img/Error\ Image.png'
     })
 
 }
@@ -145,7 +145,7 @@ fetch(nasaRHAZURL)
     })
     .catch(err => {
         console.log(`error ${err}`)
-        alert("Error! Martian interference. Please try again, over.")
+        const imgError = document.querySelector('#RHAZImg').src = './img/Error\ Image.png'
     })
 
 }
@@ -184,7 +184,7 @@ let nasaNavcamURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/ph
         })
         .catch(err => {
             console.log(`error ${err}`)
-            alert("Error! Martian interference. Please try again, over.")
+            const imgError = document.querySelector('#NAVCAMImg').src = './img/Error\ Image.png'
         })
 }
 
