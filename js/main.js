@@ -5,6 +5,7 @@ getManifest()
 checkFavs()
 let favArray = checkFavs()
 
+// Onclick get images based on user inputted number
 document.querySelector('#pickSol').addEventListener('click', () => {
     let sol = document.querySelector('#solPick').value
     getFHAZ(sol)
@@ -13,10 +14,12 @@ document.querySelector('#pickSol').addEventListener('click', () => {
     document.getElementById("currentDate").textContent = `Sol's since launch: ${sol}`
 })
 
+// Onclick add input field number
 document.querySelector('#favBtn').addEventListener('click', () => {
     addToFavs(favArray)
 })
 
+// Onclick remove favourites from local storage
 document.querySelector('#clearFav').addEventListener('click', () => {
     clearFavs()
     favArray = []
@@ -25,7 +28,7 @@ document.querySelector('#clearFav').addEventListener('click', () => {
 // Click counter for sol's
 let count = 0
 
-// Minus a sol images
+// Minus a sol by 1 on click and fetch images
 document.querySelector('#minusSol').addEventListener('click', () => {
     let sol = Number(document.querySelector('#solPick').value) + --count
     getFHAZ(sol)
@@ -35,7 +38,7 @@ document.querySelector('#minusSol').addEventListener('click', () => {
     return count    
 })
 
-// Plus a sol images
+// Plus a sol by 1 on click and fetch images
 document.querySelector('#plusSol').addEventListener('click', () => {
     let sol = Number(document.querySelector('#solPick').value) + ++count
     getFHAZ(sol)
@@ -46,9 +49,9 @@ document.querySelector('#plusSol').addEventListener('click', () => {
     
 })
 
-// Latest sol images
+// Latest sol images to date
 function latestSol(todaySol) {
-    if (document.readyState === 'complete') {
+    if (document.readyState === 'interactive') {
         getFHAZ(todaySol)
         getRHAZ(todaySol)
         getNAVCAM(todaySol)
@@ -62,7 +65,7 @@ function latestSol(todaySol) {
     })}
 }
 
-// Landing Sol images
+// Landing Sol image fetch
 document.querySelector('#firstSol').addEventListener('click', () => {
     let sol = 0
     getFHAZ(sol)
@@ -189,9 +192,8 @@ let nasaNavcamURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/ph
 }
 
 
-function getManifest() {
-
-// Fetch info for that Sol and run latest sol function    
+// Fetch info for that Sol and run latest sol function   
+function getManifest() { 
 let nasaManifestURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/?api_key=HTn441SSfabqhV7KiFBa5KJYXERa6P5q2vZcb5ew`
     
     fetch(nasaManifestURL)
@@ -217,7 +219,7 @@ function getInfo(maxSol, launch, landing, status) {
     document.getElementById("landingDate").textContent = landing
     document.getElementById("currentDate").textContent = maxSol
 
-    //Green light gif for active and red for anything else
+    //Green light gif for active and red for inactive
     document.getElementById("status").textContent = status.toUpperCase()
     if (status !== "active") {
        const light = document.querySelector('.light')
@@ -226,8 +228,7 @@ function getInfo(maxSol, launch, landing, status) {
     }
 }
 
-// Add sol to favourites button (add to local storage) and put into DOM
-
+// Check if there are any favourites held in local storage
 function checkFavs(){
     if (localStorage.getItem('fav1') === null) {
         const favArr = []
@@ -239,6 +240,7 @@ function checkFavs(){
     }
 }
 
+// Add favourite sol number into local storage and DOM
 function addToFavs(array) {
     let solInput = document.querySelector('#solPick').value
     array.push(solInput.toString())
@@ -246,12 +248,14 @@ function addToFavs(array) {
     getFavLocal()
     }
 
+// Fetch local storage
 function getFavLocal() {
     let getFav = JSON.parse(localStorage.getItem('fav1'))
     document.querySelector('#favList').textContent = getFav
     return getFav
 }
 
+// Clear favourites from local storage and DOM
 function clearFavs() {
     localStorage.clear()
     document.querySelector('#favList').textContent = "No favourites selected"
