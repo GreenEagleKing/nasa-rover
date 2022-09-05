@@ -120,26 +120,33 @@ h2{
 }
 
 #FHAZImg {
+  object-fit: cover;
   height: 400px;
+  width: 400px;
   margin: 10px 0px;
 }
 
 #NAVCAMImg {
+  object-fit: cover;
   height: 400px;
+  width: 400px;
   margin: 10px 0px;
   
 }
 
 #RHAZImg {
+  object-fit: cover;
   height: 400px;
+  width: 400px;
   margin: 10px 0px;
 }
 
 #solPick {
   text-align: center;
-  width: 100px;
-  font-size: 16px;
+  width: 150px;
+  font-size: 25px;
   font-weight: 600;
+  border: 3px solid #ffa500;
 }
 
 label{
@@ -306,7 +313,7 @@ button:focus {
 }
 
 button:hover {
-  border-color: orange;
+  border-color: #ffa500;
   color: orange;
   fill: orange;
 }

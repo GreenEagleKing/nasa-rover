@@ -12,6 +12,7 @@ document.querySelector('#pickSol').addEventListener('click', () => {
     getRHAZ(sol)
     getNAVCAM(sol)
     document.getElementById("currentDate").textContent = `Sol's since launch: ${sol}`
+    document.getElementById("solPick").value = sol
 })
 
 // Onclick add input field number
@@ -25,44 +26,40 @@ document.querySelector('#clearFav').addEventListener('click', () => {
     favArray = []
 })
 
-// Click counter for sol's
-let count = 0
 
 // Minus a sol by 1 on click and fetch images
 document.querySelector('#minusSol').addEventListener('click', () => {
-    let sol = Number(document.querySelector('#solPick').value) + --count
+    let sol = Number(document.querySelector('#solPick').value) - 1
     getFHAZ(sol)
     getRHAZ(sol)
     getNAVCAM(sol)
     document.getElementById("currentDate").textContent = `${sol}`
-    return count    
+    document.getElementById("solPick").value = sol 
 })
 
 // Plus a sol by 1 on click and fetch images
 document.querySelector('#plusSol').addEventListener('click', () => {
-    let sol = Number(document.querySelector('#solPick').value) + ++count
+    let sol = Number(document.querySelector('#solPick').value) + 1
     getFHAZ(sol)
     getRHAZ(sol)
     getNAVCAM(sol)
     document.getElementById("currentDate").textContent = `Sol's since launch: ${sol}`
-    return count
-    
+    document.getElementById("solPick").value = sol
 })
 
-// Latest sol images to date
+// when latest sol button click latest date is fetched
+document.querySelector('#latestSol').addEventListener('click', () => {
+    getManifest()
+})
+
+
+// Latest sol images to date on page load
 function latestSol(todaySol) {
-    if (document.readyState === 'interactive') {
+    document.readyState === 'interactive'
         getFHAZ(todaySol)
         getRHAZ(todaySol)
         getNAVCAM(todaySol)
         document.getElementById("currentDate").textContent = `Sol's since launch: ${todaySol}`
-    } else {
-    document.querySelector('#latestSol').addEventListener('click', () => {
-        getFHAZ(todaySol)
-        getRHAZ(todaySol)
-        getNAVCAM(todaySol)
-        document.getElementById("currentDate").textContent = `Sol's since launch: ${todaySol}`
-    })}
 }
 
 // Landing Sol image fetch
@@ -155,7 +152,6 @@ fetch(nasaRHAZURL)
 
 // Fetch NAVCAM camera image
 function getNAVCAM(solInput) {    
-    555
 let nasaNavcamURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${solInput}&camera=navcam&api_key=HTn441SSfabqhV7KiFBa5KJYXERa6P5q2vZcb5ew`
     
     fetch(nasaNavcamURL)
@@ -218,6 +214,7 @@ function getInfo(maxSol, launch, landing, status) {
     document.getElementById("launchDate").textContent = launch
     document.getElementById("landingDate").textContent = landing
     document.getElementById("currentDate").textContent = maxSol
+    document.getElementById("solPick").value = maxSol
 
     //Green light gif for active and red for inactive
     document.getElementById("status").textContent = status.toUpperCase()
