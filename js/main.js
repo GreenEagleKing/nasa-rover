@@ -56,10 +56,10 @@ document.querySelector('#latestSol').addEventListener('click', () => {
 // Latest sol images to date on page load
 function latestSol(todaySol) {
     document.readyState === 'interactive'
-        getFHAZ(todaySol)
-        getRHAZ(todaySol)
-        getNAVCAM(todaySol)
-        document.getElementById("currentDate").textContent = `Sol's since launch: ${todaySol}`
+    getFHAZ(todaySol)
+    getRHAZ(todaySol)
+    getNAVCAM(todaySol)
+    document.getElementById("currentDate").textContent = `Sol's since launch: ${todaySol}`
 }
 
 // Landing Sol image fetch
